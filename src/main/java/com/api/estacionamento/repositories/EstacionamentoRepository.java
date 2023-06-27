@@ -3,14 +3,23 @@ package com.api.estacionamento.repositories;
 
 import com.api.estacionamento.models.RegistroEstacionamento;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 @EnableJpaRepositories
 public interface EstacionamentoRepository extends JpaRepository<RegistroEstacionamento, String> {
 
     boolean existsByPlacaVeiculo(String placa_veiculo);
+    Optional<RegistroEstacionamento> findByPlacaVeiculo(String placaVeiculo);
+
+    void deleteById(UUID id);
+
+    Optional<RegistroEstacionamento> findById(UUID id);
 
 
 //    Optional<RegistroEstacionamento> findById(String placa_veiculo);

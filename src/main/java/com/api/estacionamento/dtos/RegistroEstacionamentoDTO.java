@@ -1,6 +1,5 @@
 package com.api.estacionamento.dtos;
 
-import com.api.estacionamento.models.TamanhoVeiculo;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -12,9 +11,6 @@ public class RegistroEstacionamentoDTO {
 
     private Double valorTotal;
 
-    private TamanhoVeiculo tamanhoVeiculo;
+    private int ultimoRegistro;
 
-//    public void calcularValorTotal() {
-//        this.valorTotal = calcularValorTotal();
-//    }
 }

@@ -1,13 +1,11 @@
 package com.api.estacionamento.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tb_estacionamento")
@@ -15,6 +13,9 @@ import java.time.LocalDateTime;
 public class RegistroEstacionamento implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
     @Column(nullable = false, length = 7)
     private String placaVeiculo;
 
@@ -30,6 +31,6 @@ public class RegistroEstacionamento implements Serializable {
     @Column(nullable = true, length = 10)
     private int ultimoRegistro;
 
-    @Column(nullable = true, length = 15)
-    private TamanhoVeiculo tamanhoVeiculo;
+//    @Column(nullable = true, length = 15)
+//    private TamanhoVeiculo tamanhoVeiculo;
 }
