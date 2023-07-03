@@ -30,7 +30,6 @@ public class EstacionamentoController {
         this.estacionamentoService = estacionamentoService;
     }
 
-    // TODO validar o ultimo registro, se o veiculo esta no estacionamento ou nao
     @PostMapping(value = "/registrar")
     public ResponseEntity<Object> saveRegistroVeiculo(@RequestBody @Valid RegistroEstacionamentoDTO registroEstacionamentoDTO) {
         if (registroEstacionamentoDTO.getPlacaVeiculo().length() != 7) {
@@ -49,7 +48,6 @@ public class EstacionamentoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(estacionamentoService.save(registroEstacionamento));
     }
 
-    // TODO adicionar validação de se estacionamento vazio log message
     @GetMapping(value = "/all")
     public ResponseEntity<List<RegistroEstacionamento>> findAll() {
         log.info("Buscando todos os registros.");
@@ -72,6 +70,7 @@ public class EstacionamentoController {
     }
 
     // TODO adicionar validação de veiculo por ultimoRegistro
+
     @PutMapping("/{placaVeiculo}")
     public ResponseEntity<RegistroEstacionamento> updateRegistro(@PathVariable String placaVeiculo) {
         log.info("Registro de saída de veículo.");

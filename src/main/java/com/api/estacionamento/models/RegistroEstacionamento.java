@@ -19,13 +19,13 @@ public class RegistroEstacionamento implements Serializable {
     @Column(nullable = false, length = 7)
     private String placaVeiculo;
 
-    @Column(nullable = true, unique = true, length = 10)
+    @Column(nullable = true, length = 10)
     private LocalDateTime entrada;
 
-    @Column(nullable = true, unique = true, length = 10)
+    @Column(nullable = true, length = 10)
     private LocalDateTime saida;
 
-    @Column(nullable = true, unique = true, length = 10)
+    @Column(nullable = true, length = 10)
     private Double valorTotal;
 
     @Column(nullable = true, length = 10)
